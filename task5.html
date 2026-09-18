@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Фигуры и CSS-свойства</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #555;
+      margin-top: 40px;
+      margin-bottom: 15px;
+    }
+
+    .container {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    /* Квадрат */
+    .square {
+      width: 150px;
+      height: 150px;
+      background-color: #e74c3c;
+      border: 4px solid #c0392b;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    /* Прямоугольник 200*/
+    .rectangle {
+      width: 200px;
+      height: 80px;
+      background-color: #6cdb34;
+      border: 3px solid #29b946;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    /* Круг blue*/
+    .circle {
+      width: 100px;
+      height: 100px;
+      background-color: #196b9d;
+      border: 5px solid #8e9737;
+      border-radius: 50%;
+      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+    }
+/* Круг brblue*/
+    .circle {
+      width: 100px;
+      height: 100px;
+      background-color: #121f61;
+      border: 5px solid #8e9737;
+      border-radius: 50%;
+      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+    }
+/* Круг 120*/
+    .circle {
+      width: 120px;
+      height: 180px;
+      background-color: #121f61;
+      border: 5px solid #8e9737;
+      border-radius: 50%;
+      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+    }
+    /* Маленький квадрат */
+    .small-square {
+      width: 80px;
+      height: 80px;
+      background-color: #f39c12;
+      border: 2px solid #e67e22;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+    }
+/* Маленький квадрат 90*/
+    .small-square {
+      width: 90px;
+      height: 90px;
+      background-color: #12f3e0;
+      border: 2px solid #a43718;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgb(255, 255, 255);
+      font-size: 12px;
+      font-weight: bold;
+    }
+/*  прямоугольник 320 */
+    .big-rectangle {
+      width: 320px;
+      height: 60px;
+      background-color: #832a61;
+      border: 4px solid #54157e;
+      box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    /* Маленький квадрат 100*/
+    .small-square {
+      width: 100px;
+      height: 100px;
+      background-color: #12f32c;
+      border: 2px solid #b05a14;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    /*  прямоугольник 280 */
+    .big-rectangle {
+      width: 280px;
+      height: 120px;
+      background-color: #911abc;
+      border: 4px solid #54157e;
+      box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .label {
+      font-size: 14px;
+      font-weight: normal;
+      color: #777;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .figure-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Демонстрация CSS-свойств</h1>
+
+  <h2>Квадраты</h2>
+  <div class="container">
+    <div class="figure-wrapper">
+      <div class="square">Квадрат</div>
+      <div class="label">width: 150px, height: 150px</div>
+    </div>
+    <div class="figure-wrapper">
+      <div class="small-square">Маленький</div>
+      <div class="label">width: 80px, height: 80px</div>
+    </div>
+ <div class="figure-wrapper">
+      <div class="small-square">Маленький</div>
+      <div class="label">width: 80px, height: 80px</div>
+    </div>
+<div class="figure-wrapper">
+      <div class="small-square">Маленький90</div>
+      <div class="label">width: 90px, height: 90px</div>
+    </div>
+<div class="figure-wrapper">
+      <div class="small-square">Маленький100</div>
+      <div class="label">width: 100px, height: 100px</div>
+    </div>
+</div>
+
+  <h2>Прямоугольники</h2>
+  <div class="container">
+    <div class="figure-wrapper">
+      <div class="rectangle">Прямоугольник 200</div>
+      <div class="label">width: 200px, height: 80px</div>
+    </div>
+    <div class="figure-wrapper">
+      <div class="big-rectangle">прямоугольник 280</div>
+      <div class="label">width: 280px, height: 120px</div>
+    </div>
+   <div class="figure-wrapper">
+      <div class="big-rectangle">прямоугольник 320</div>
+      <div class="label">width: 320px, height: 60px</div>
+    </div>
+</div>
+
+  <h2>Круг 100 blue</h2>
+  <div class="container">
+    <div class="figure-wrapper">
+      <div class="circle">Круг<br>(border-radius: 50%)</div>
+      <div class="label">width: 100px, height: 100px</div>
+    </div>
+  </div>
+<h2>Круг 100 brblue</h2>
+  <div class="container">
+    <div class="figure-wrapper">
+      <div class="circle">Круг<br>(border-radius: 50%)</div>
+      <div class="label">width: 100px, height: 100px</div>
+    </div>
+  </div>
+ <h2>Круг 120</h2>
+  <div class="container">
+    <div class="figure-wrapper">
+      <div class="circle">Круг<br>(border-radius: 50%)</div>
+      <div class="label">width: 120px, height: 180px</div>
+    </div>
+  </div> 
+
+</body>
+</html>

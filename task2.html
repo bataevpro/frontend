@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Div vs Span</title>
+  <style>
+    .box {
+      border: 2px solid red;
+      background: lightyellow;
+      padding: 5px;
+      margin: 5px 0;
+    }
+    .inline-box {
+      border: 2px solid blue;
+      background: lightcyan;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Два DIV подряд</h2>
+  <div class="box">Первый div</div>
+  <div class="box">Второй div</div>
+
+  <h2>Два SPAN подряд</h2>
+  <span class="inline-box">Первый span</span>
+  <span class="inline-box">Второй span</span>
+
+  <h2>SPAN внутри текста</h2>
+  <p>Обычный текст, <span class="inline-box">выделенный span</span>, и снова обычный текст.</p>
+
+  <h2>DIV внутри текста</h2>
+  <p>Обычный текст, <div class="box">вставленный div</div>, и снова обычный текст.</p>
+
+</body>
+</html>

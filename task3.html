@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Прыгающий мячик</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+
+    <script>
+        // Получаем ссылку на canvas и контекст для рисования
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Параметры мяча
+        let x = 100, y = 100; // начальные координаты
+        let vx = 5, vy = 2; // скорости по осям
+        let radius = 25; // радиус
+        const canvasWidth = canvas.width;
+        const canvasHeight = canvas.height;
+
+        // Функция для анимации
+        function animate() {
+            // Очищаем холст от предыдущего кадра
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+            // Обновляем позицию
+            x += vx;
+            y += vy;
+
+            // Проверяем границы и делаем отскок
+            if (x + radius > canvasWidth || x - radius < 0) {
+                vx = -vx;
+            }
+            if (y + radius > canvasHeight || y - radius < 0) {
+                vy = -vy;
+            }
+
+            // Рисуем мяч
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fillStyle = 'blue';
+            ctx.fill();
+            ctx.closePath();
+
+            // Запрашиваем следующий кадр
+            requestAnimationFrame(animate);
+        }
+
+        // Запуск анимации
+        animate();
+    </script>
+</body>
+</html>
