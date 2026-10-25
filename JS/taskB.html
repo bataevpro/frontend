@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Офлайн SPA с вложенными страницами</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Боковая панель с меню */
+        aside {
+            width: 300px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            overflow-y: auto;
+            border-right: 1px solid #1a252f;
+        }
+
+        aside h2 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #1abc9c;
+        }
+
+        /* Списки навигации */
+        ul {
+            list-style: none;
+            padding-left: 15px;
+            border-left: 1px dashed #7f8c8d;
+        }
+
+        ul.root-list {
+            padding-left: 0;
+            border-left: none;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        a.nav-link {
+            color: #bdc3c7;
+            text-decoration: none;
+            display: block;
+            padding: 6px 10px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        a.nav-link:hover {
+            background-color: #34495e;
+            color: #fff;
+        }
+
+        a.nav-link.active {
+            background-color: #1abc9c;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Основная область контента */
+        main {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+            background-color: #fff;
+        }
+
+        .page-content {
+            display: none;
+            max-width: 800px;
+        }
+
+        .page-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        h1 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Боковое меню с вложенностью -->
+    <aside>
+        <h2>Навигация</h2>
+        <ul class="root-list">
+            <li>
+                <a class="nav-link active" data-target="page-home">Главная страница</a>
+            </li>
+            <li>
+                <a class="nav-link" data-target="page-section1">Раздел 1 (Родитель)</a>
+                <ul>
+                    <li><a class="nav-link" data-target="page-section1-1">Вложенная страница 1.1</a></li>
+                    <li><a class="nav-link" data-target="page-section1-2">Вложенная страница 1.2</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="nav-link" data-target="page-section2">Раздел 2 (Родитель)</a>
+                <ul>
+                    <li><a class="nav-link" data-target="page-section2-1">Вложенная страница 2.1</a></li>
+                    <li><a class="nav-link" data-target="page-section2-2">Вложенная страница 2.2</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="nav-link" data-target="page-about">О проекте</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Область отображения контента -->
+    <main>
+        <div id="page-home" class="page-content active">
+            <h1>Главная страница</h1>
+            <p>Добро пожаловать в офлайн-прототип приложения с вложенной структурой страниц.</p>
+            <p>Выберите любой пункт или вложенный подраздел в меню слева, чтобы увидеть изменение содержимого без перезагрузки страницы.</p>
+        </div>
+
+        <div id="page-section1" class="page-content">
+            <h1>Раздел 1</h1>
+            <p>Это общий обзорный текст для Раздела 1.</p>
+            <p>Используйте меню слева для перехода к более глубоким вложенным страницам.</p>
+        </div>
+
+        <div id="page-section1-1" class="page-content">
+            <h1>Вложенная страница 1.1</h1>
+            <p>Содержимое первого вложенного уровня для Раздела 1.</p>
+        </div>
+
+        <div id="page-section1-2" class="page-content">
+            <h1>Вложенная страница 1.2</h1>
+            <p>Содержимое второго вложенного уровня для Раздела 1.</p>
+        </div>
+
+        <div id="page-section2" class="page-content">
+            <h1>Раздел 2</h1>
+            <p>Обзорная информация по Разделу 2.</p>
+        </div>
+
+        <div id="page-section2-1" class="page-content">
+            <h1>Вложенная страница 2.1</h1>
+            <p>Текст подраздела 2.1.</p>
+        </div>
+
+        <div id="page-section2-2" class="page-content">
+            <h1>Вложенная страница 2.2</h1>
+            <p>Текст подраздела 2.2.</p>
+        </div>
+
+        <div id="page-section2-3" class="page-content">
+            <h1>Вложенная страница 2.3</h1>
+            <p>Текст подраздела 2.3.</p>
+        </div>
+
+        <div id="page-about" class="page-content">
+            <h1>О проекте</h1>
+            <p>Этот пример написан с использованием чистого HTML, CSS и JavaScript (Vanilla JS).</p>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page-content');
+
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    const targetId = link.getAttribute('data-target');
+
+                    // Убираем активные классы со ссылок и страниц
+                    links.forEach(l => l.classList.remove('active'));
+                    pages.forEach(p => p.classList.remove('active'));
+
+                    // Добавляем активный класс текущей ссылке
+                    link.classList.add('active');
+
+                    // Показываем целевую страницу
+                    const targetPage = document.getElementById(targetId);
+                    if (targetPage) {
+                        targetPage.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

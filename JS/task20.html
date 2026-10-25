@@ -1,0 +1,61 @@
+html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Движение текста в квадрате</title>
+    <style>
+        /* Настройки самого квадрата */
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: #3498db;
+            position: relative; /* Важно: чтобы текст позиционировался относительно квадрата */
+            overflow: hidden;   /* Чтобы текст не вылетал за границы квадрата */
+        }
+
+        /* Настройки двигающейся надписи */
+        .animated-text {
+            position: absolute;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 20px;
+            
+            /* Подключаем анимацию: название, длительность (4 секунды), бесконечный повтор */
+            animation: moveText 4s infinite linear;
+        }
+
+        /* Описание траектории движения (по углам квадрата) */
+        @keyframes moveText {
+            0% {
+                top: 10px;
+                left: 10px;
+            }
+            25% {
+                top: 10px;
+                left: 200px; /* Смещаемся в правый верхний угол */
+            }
+            50% {
+                top: 260px;
+                left: 200px; /* Смещаемся в правый нижний угол */
+            }
+            75% {
+                top: 260px;
+                left: 10px;  /* Смещаемся в левый нижний угол */
+            }
+            100% {
+                top: 10px;
+                left: 10px;  /* Возвращаемся в исходную точку */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div class="animated-text">Привет!</div>
+    </div>
+
+</body>
+</html>

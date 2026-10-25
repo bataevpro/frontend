@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Фигуры</title>
+    <style>
+   /* Серый главный прямоугольник */
+.main-container {
+  background-color: #e0e0e0;
+  width: 600px;
+  height: 450px;
+  padding: 20px;
+  box-sizing: border-box;
+  
+  /* Делаем сам контейнер флексбоксом, чтобы ряды шли друг за другом по вертикали */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Равномерно распределяет верх, середину и низ */
+}
+
+/* Базовые стили для рядов */
+.row {
+  display: flex;
+  width: 100%;
+}
+
+/* Стили для маленьких квадратов */
+.square {
+  width: 60px;
+  height: 60px;
+  background-color: #3498db;
+}
+
+/* ВЕРХНИЙ РЯД: раздвигаем два квадрата по углам */
+.row-top {
+  justify-content: space-between;
+}
+
+/* СРЕДНИЙ РЯД: элемент один, растягиваем его */
+.row-middle {
+  justify-content: center;
+}
+
+/* Растянутый прямоугольник в середине */
+.rect {
+  width: 80%; /* Занимает большую часть ширины */
+  height: 80px;
+  background-color: #2ecc71;
+}
+
+/* НИЖНИЙ РЯД: распределяем три квадрата (по углам и в центре) */
+.row-bottom {
+  justify-content: space-between;
+}
+</style>
+</head>
+<body>
+  <div class="main-container">
+  <!-- Верхний ряд: два квадрата по углам -->
+  <div class="row row-top">
+    <div class="square"></div>
+    <div class="square"></div>
+  </div>
+
+  <!-- Средний ряд: один растянутый прямоугольник -->
+  <div class="row row-middle">
+    <div class="rect"></div>
+  </div>
+
+  <!-- Нижний ряд: три квадрата равномерно -->
+  <div class="row row-bottom">
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+  </div>
+</div>
+    
+
+</body>
+</html>

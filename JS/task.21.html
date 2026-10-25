@@ -1,0 +1,75 @@
+html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Смена позиций и текста</title>
+    <style>
+        /* Квадрат-контейнер */
+        .box {
+            width: 350px;
+            height: 350px;
+            background-color: #2c3e50;
+            position: relative; /* Координатная сетка для текста */
+            margin: 50px auto;
+            border-radius: 8px;
+        }
+
+        /* Текст внутри квадрата */
+        .animated-text {
+            position: absolute;
+            color: #1abc9c;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            white-space: nowrap; /* Чтобы текст не переносился на две строки */
+            
+            /* Плавный переход при изменении координат top и left */
+            transition: top 0.5s ease, left 0.5s ease; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <!-- Начальное положение (0% отступа сверху и слева) -->
+        <div class="animated-text" style="top: 15px; left: 15px;">Левый верхний</div>
+    </div>
+
+    <script>
+        const textElement = document.querySelector('.animated-text');
+
+        // Список всех положений: координаты внутри квадрата и соответствующий текст
+        const states = [
+            { top: '15px',  left: '15px',  text: 'Левый верхний' },
+            { top: '15px',  left: '210px', text: 'Правый верхний' },
+            { top: '310px', left: '210px', text: 'Правый нижний' },
+            { top: '310px', left: '15px',  text: 'Левый нижний' }
+        ];
+
+        let currentState = 0;
+
+        // Функция, которая двигает текст и меняет его содержимое
+        function changePosition() {
+            // Переходим к следующему состоянию по кругу
+            currentState = (currentState + 1) % states.length;
+            
+            const next = states[currentState];
+            
+            // 1. Меняем координаты (сработает плавная CSS-анимация transition)
+            textElement.style.top = next.top;
+            textElement.style.left = next.left;
+            
+            // 2. Меняем сам текст
+            textElement.textContent = next.text;
+        }
+
+        // ВАРИАНТ А: Автоматическое движение каждые 2 секунды
+        setInterval(changePosition, 2000);
+
+        // ВАРИАНТ Б: Если хотите менять по клику, раскомментируйте строку ниже (а setInterval удалите):
+        // textElement.addEventListener('click', changePosition);
+    </script>
+
+</body>
+</html>
